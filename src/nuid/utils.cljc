@@ -19,30 +19,31 @@
   (-> [(subvec v 0 i) (subvec v (+ i 1))] flatten vec))
 
 (defn str->hex [s]
-  #?(:clj (apply str (map #(format "%02x" %) (.getBytes s "UTF-8")))
+  #?(:clj (apply str (map #(format "%02x" %) (if (string? s) (.getBytes s "UTF-8") s)))
      :cljs (-> s b/Buffer.from (.toString "hex"))))
 
 (defn hex->str [hex]
-  #?(:clj
-     (let [f (fn [[x y]] (unchecked-byte (Integer/parseInt (str x y) 16)))
-           bytes (into-array Byte/TYPE (map f (partition 2 hex)))]
-       (String. bytes "UTF-8"))
-     :cljs
-     (-> hex (b/Buffer.from "hex") .toString)))
+  #?(:clj (let [f (fn [[x y]] (unchecked-byte (Integer/parseInt (str x y) 16)))
+                bytes (into-array Byte/TYPE (map f (partition 2 hex)))]
+            (String. bytes "UTF-8"))
+     :cljs (-> hex (b/Buffer.from "hex") .toString)))
 
 (defn str->base64 [s]
-  #?(:clj (.encodeToString (Base64/getEncoder) (.getBytes s))
+  #?(:clj (.encodeToString (Base64/getEncoder) (if (string? s) (.getBytes s) s))
      :cljs (.toString (b/Buffer.from s) "base64")))
 
-(defn base64->str [s]
-  #?(:clj (String. (.decode (Base64/getDecoder) s))
-     :cljs (.toString (b/Buffer.from s "base64"))))
+(defn base64->bytes [b64]
+  #?(:clj (.decode (Base64/getDecoder) b64)
+     :cljs (js/Array.prototype.slice.call (b/Buffer.from b64 "base64"))))
 
-#?(:clj
-   (defn when-complete [cf f]
-     (let [f' (reify java.util.function.BiConsumer
-                (accept [this a b] (f this a b)))]
-       (-> cf (.whenComplete f')))))
+(defn base64->str [b64]
+  #?(:clj (String. (base64->bytes b64) "UTF-8")
+     :cljs (.toString (b/Buffer.from b64 "base64") "utf-8")))
+
+#?(:clj (defn when-complete [cf f]
+          (let [f' (reify java.util.function.BiConsumer
+                     (accept [this a b] (f this a b)))]
+            (-> cf (.whenComplete f')))))
 
 #?(:cljs (def exports
            #js {:deep-merge-with deep-merge-with
