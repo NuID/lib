@@ -4,7 +4,5 @@
  :aliases
  {:repl
   {:extra-deps
-   {nuid/deps
-    {:git/url "git@github.com:nuid/deps.git",
-     :sha "c4846a81e4b491b6ce73d71e2f43c360301d65cb"}}}},
+   {nuid/deps {:local/root "/Users/nolan/dev/nuid/deps"}}}},
  :paths ["src"]}
