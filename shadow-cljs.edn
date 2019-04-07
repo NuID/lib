@@ -1,6 +1,6 @@
 {:builds
  {:browser
-  {:modules {:browser {:entries [nuid.utils]}}
+  {:modules {:nuid_utils {:entries [nuid.utils]}}
    :output-dir "target/browser"
    :asset-path "target/browser"
    :target :browser}
