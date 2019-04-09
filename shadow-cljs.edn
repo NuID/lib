@@ -1,12 +1,11 @@
 {:builds
  {:browser
-  {:modules {:nuid_utils {:entries [nuid.utils]}}
-   :output-dir "target/browser"
-   :asset-path "target/browser"
-   :target :browser}
-
+  {:modules {:nuid_utils {:entries [nuid.utils]}},
+   :output-dir "target/browser",
+   :asset-path "target/browser",
+   :target :browser},
   :node
-  {:output-to "target/node/nuid_utils.js"
-   :exports-var nuid.utils/exports
-   :target :node-library}}
+  {:output-to "target/node/nuid_utils.js",
+   :exports-var nuid.utils/exports,
+   :target :node-library}},
  :deps {:aliases []}}
