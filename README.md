@@ -10,7 +10,7 @@ Common utilities.
 
 ### tools.deps:
 
-`{nuid/utils {:git/url "https://github.com/nuid/utils" :sha "..."}`
+`{nuid/utils {:git/url "https://github.com/nuid/utils" :sha "..."}}`
 
 ## Contributing
 
