@@ -12,6 +12,10 @@ Common utilities.
 
 `{nuid/utils {:git/url "https://github.com/nuid/utils" :sha "..."}}`
 
+## Licensing
+
+Apache v2.0 or MIT
+
 ## Contributing
 
 Install [`git-hooks`](https://github.com/icefox/git-hooks) and fire away. Make sure not to get bitten by [`externs`](https://clojurescript.org/guides/externs) if modifying `npm` dependencies.
