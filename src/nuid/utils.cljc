@@ -1,6 +1,7 @@
 (ns nuid.utils)
 
-(defn deep-merge-with [f & ms]
+(defn deep-merge-with
+  [f & ms]
   (apply merge-with
          (fn [a b]
            (if (and (map? a) (map? b))
@@ -8,10 +9,22 @@
              (f a b)))
          ms))
 
-(defn deep-merge [& ms]
+(defn deep-merge
+  [& ms]
   (apply deep-merge-with
          (fn [a b] b)
          ms))
 
-(defn remove-index [v i]
-  (vec (flatten [(subvec v 0 i) (subvec v (+ i 1))])))
+(defn vec-remove-index
+  "Throws ClassCastException.
+  Throws IndexOutOfBoundsException."
+  [v i]
+  (into (subvec v 0 i)
+        (subvec v (inc i))))
+
+(defn drop-nth
+  "Works with any sequence; returns a sequence.
+  If `i` is out-of-bounds, returns `coll` as a sequence."
+  [coll i]
+  (keep-indexed #(when (not= %1 i) %2)
+                coll))
