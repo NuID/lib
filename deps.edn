@@ -18,5 +18,5 @@
   {:extra-deps
    {nuid/deps
     {:git/url "https://github.com/nuid/deps.git",
-     :sha "1faba7d1c8ff0d274f29611446e5d50662096355"}}}},
+     :sha "1cf5069bc708adf9f2809f3917cc9c5e971f28a0"}}}},
  :paths ["src"]}
