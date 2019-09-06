@@ -8,4 +8,4 @@
   {:output-to "target/node/nuid_utils.js",
    :exports-var nuid.utils/exports,
    :target :node-library}},
- :deps {:aliases []}}
+ :deps {:aliases [:shadow]}}
