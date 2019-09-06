@@ -10,12 +10,13 @@
    :main-opts ["-m" "cljfmt-runner.check"]},
   :cljfmt/fix {:main-opts ["-m" "cljfmt-runner.fix"]},
   :depot
-  {:extra-deps {olical/depot {:mvn/version "1.8.2"}},
+  {:extra-deps {olical/depot {:mvn/version "1.8.4"}},
    :main-opts ["-m" "depot.outdated.main"]},
   :depot/update {:main-opts ["-m" "depot.outdated.main --update"]},
+  :shadow {:extra-deps {thheller/shadow-cljs {:mvn/version "2.8.52"}}},
   :repl
   {:extra-deps
    {nuid/deps
     {:git/url "https://github.com/nuid/deps.git",
-     :sha "411c76ace16481c30e9fd78796dc93898499cdf5"}}}},
+     :sha "1faba7d1c8ff0d274f29611446e5d50662096355"}}}},
  :paths ["src"]}
