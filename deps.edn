@@ -13,10 +13,10 @@
   {:extra-deps {olical/depot {:mvn/version "1.8.4"}},
    :main-opts ["-m" "depot.outdated.main"]},
   :depot/update {:main-opts ["-m" "depot.outdated.main --update"]},
-  :shadow {:extra-deps {thheller/shadow-cljs {:mvn/version "2.8.52"}}},
+  :shadow {:extra-deps {thheller/shadow-cljs {:mvn/version "2.8.55"}}},
   :repl
   {:extra-deps
    {nuid/deps
     {:git/url "https://github.com/nuid/deps.git",
-     :sha "1cf5069bc708adf9f2809f3917cc9c5e971f28a0"}}}},
+     :sha "e45cfbec3884a63387e13cdb163c41fd3c3e861b"}}}},
  :paths ["src"]}
