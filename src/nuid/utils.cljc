@@ -26,5 +26,7 @@
   "Works with any sequence; returns a sequence.
   If `i` is out-of-bounds, returns `coll` as a sequence."
   [coll i]
-  (keep-indexed #(when (not= %1 i) %2)
+  (keep-indexed (fn [index x]
+                  (when (not (= index i))
+                    x))
                 coll))
