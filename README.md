@@ -1,3 +1,5 @@
+<p align="right"><a href="https://nuid.io"><img src="https://nuid.io/svg/logo.svg" width="20%"></a></p>
+
 # nuid.utils
 
 Common utilities.
@@ -6,7 +8,7 @@ Common utilities.
 
 [`jvm`](https://www.java.com/en/download/), [`node + npm`](https://nodejs.org/en/download/), [`clj`](https://clojure.org/guides/getting_started), [`shadow-cljs`](https://shadow-cljs.github.io/docs/UsersGuide.html#_installation)
 
-## From Clojure and ClojureScript
+## Clojure and ClojureScript
 
 ### tools.deps:
 
@@ -15,24 +17,3 @@ Common utilities.
 ## Licensing
 
 Apache v2.0 or MIT
-
-## Contributing
-
-### formatting:
-
-```
-$ clojure -A:cljfmt            # check
-$ clojure -A:cljfmt:cljfmt/fix # fix
-```
-
-### dependencies:
-
-```
-## check
-$ npm outdated
-$ clojure -A:depot
-
-## update
-$ npm upgrade -s
-$ clojure -A:depot:depot/update
-```
