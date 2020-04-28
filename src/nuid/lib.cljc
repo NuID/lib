@@ -1,4 +1,4 @@
-(ns nuid.utils)
+(ns nuid.lib)
 
 (defn deep-merge-with
   [f & ms]
@@ -12,7 +12,7 @@
 (defn deep-merge
   [& ms]
   (apply deep-merge-with
-         (fn [a b] b)
+         (fn [_a b] b)
          ms))
 
 (defn vec-remove-index
