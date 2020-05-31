@@ -30,3 +30,12 @@
                   (when (not (= index i))
                     x))
                 coll))
+
+(defn fqn
+  "Stringifies a keyword or symbol, maintaining its
+  namespace. Returns `nil` for any other input."
+  [x]
+  (when (or (keyword? x) (symbol? x))
+    (if-let [ns (namespace x)]
+      (str ns "/" (name x))
+      (name x))))
